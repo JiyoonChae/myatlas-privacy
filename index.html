@@ -40,11 +40,10 @@
     <p class="meta">앱: MyAtlas · 패키지명: <code>com.jyc.myatlas</code><br>초안 작성일: <time datetime="2026-11-02">2026년 11월 2일</time></p>
   </header>
 
-  <!-- RELEASE: 실제 운영자명·문의 이메일·문의 보관 기준을 확정한 후 초안 안내를 제거하고 시행일을 기재합니다. -->
+  <!-- RELEASE: 실제 운영자명·문의 보관 기준을 확정한 후 초안 안내를 제거하고 시행일을 기재합니다. -->
   <aside class="notice" aria-label="초안 안내">
     <strong>출시 준비용 초안입니다.</strong>
-    문의 이메일 <code>example@gmail.com</code>은 임시 예시이며 실제 문의처가 아닙니다.
-    정식 배포 전에 운영자 정보와 문의처를 확정하고 이 문서를 갱신합니다.
+    정식 배포 전에 운영자 정보와 문의 처리 기준을 확정하고 이 문서를 갱신합니다.
   </aside>
 
   <p>MyAtlas는 사용자가 방문한 여행지를 기록하고 지도와 영상으로 돌아볼 수 있는 Android 앱입니다.
@@ -68,6 +67,7 @@
         <thead><tr><th scope="col">기능</th><th scope="col">정보</th><th scope="col">목적 및 처리 위치</th></tr></thead>
         <tbody>
           <tr><th scope="row">여행 기록</th><td>여행 제목, 방문 국가·도시, 장소 좌표, 여행 기간·방문 날짜, 방문 순서, 기록 식별자</td><td>기록 저장·편집·조회, 여행 통계, 경로 재생을 위해 기기 내 Room 데이터베이스에서 처리합니다.</td></tr>
+          <tr><th scope="row">사진으로 도시 가져오기</th><td>선택한 사진의 위치·촬영 날짜 메타데이터와 도시 후보</td><td>사진의 촬영 날짜를 방문일로 사용하고 좌표를 읽어 Android Geocoder로 도시를 찾습니다. 좌표는 기기의 지오코딩 서비스 제공자에게 전송될 수 있습니다. 사진 자체는 앱에 저장하지 않습니다.</td></tr>
           <tr><th scope="row">도시 검색</th><td>입력한 도시·장소 검색어, 검색 결과의 장소명·국가·좌표</td><td>Android Geocoder를 이용해 위치 후보를 찾습니다. 검색어는 기기의 지오코딩 서비스 제공자에게 전송될 수 있습니다.</td></tr>
           <tr><th scope="row">Google 지도</th><td>지도 요청 정보, IP 주소, 기기·SDK 정보, SDK 식별자, 오류·진단 정보, 지도 조작 정보</td><td>지도 표시 및 Google 서비스 운영·개선을 위해 Google Maps SDK가 정보를 처리할 수 있습니다. 자세한 내용은 아래 외부 서비스 항목을 참고해 주세요.</td></tr>
           <tr><th scope="row">영상 저장</th><td>영상에 표시할 여행지·경로·여행 제목·기간 등의 기록, 생성된 MP4</td><td>기기 내에서 영상을 생성하여 <code>Movies/MyAtlas</code>에 저장합니다. 앱 운영자의 서버로 업로드하지 않습니다.</td></tr>
@@ -112,7 +112,7 @@
   <section aria-labelledby="permissions">
     <h2 id="permissions">3. 앱 접근 권한</h2>
     <p>앱은 도시 검색과 지도 이용을 위해 인터넷 및 네트워크 상태 접근 권한을 사용합니다.
-      현재 버전은 GPS 위치, 연락처, 카메라, 마이크 및 다른 사진·영상 전체를 읽는 권한을 요청하지 않습니다.
+      사진으로 도시를 가져올 때 선택한 사진의 원본 위치 정보에 접근하는 권한을 요청합니다. 현재 GPS 위치, 연락처, 카메라, 마이크 및 사진·영상 전체를 읽는 권한은 요청하지 않습니다.
       영상은 Android의 MediaStore를 이용해 앱이 생성한 파일을 저장합니다.</p>
   </section>
 
@@ -146,14 +146,14 @@
     <h2 id="contact">6. 개인정보 문의</h2>
     <p>앱: <strong>MyAtlas</strong><br>
       운영자명: 정식 배포 전 확정 예정<br>
-      문의 이메일: <code>example@gmail.com</code> <strong>(임시 예시 · 문의 수신 불가)</strong></p>
-    <p>현재는 연락처를 확정하기 전의 초안입니다. 실제 문의 채널을 개설할 때 문의 대응 과정에서 처리할 정보와 보관 기준도 함께 안내합니다.</p>
+      문의 이메일: <code>oliviachae23@gmail.com</code></p>
+    <p>문의 대응 과정에서 처리할 정보와 보관 기준은 정식 배포 전에 안내합니다.</p>
   </section>
 
   <section aria-labelledby="changes">
     <h2 id="changes">7. 방침 변경</h2>
     <p>기능, 외부 서비스 또는 정보 처리 방식이 바뀌면 이 페이지를 갱신합니다.
-      정식 시행일과 실제 문의처는 출시 전에 확정합니다.</p>
+      정식 시행일은 출시 전에 확정합니다.</p>
   </section>
 
   <footer>MyAtlas · 개인정보처리방침 · 출시 준비용 초안</footer>
